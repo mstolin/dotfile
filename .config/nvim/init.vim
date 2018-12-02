@@ -7,20 +7,25 @@ let g:plug_pwindow = 'vertical rightbelow new'
 
 call plug#begin(s:bundle_dir)
 
-Plug 'Valloric/YouCompleteMe'
-Plug 'vim-syntastic/syntastic'
-Plug 'nvie/vim-flake8'
 Plug 'mhinz/vim-startify'
+Plug 'itchyny/lightline.vim'
+Plug 'itchyny/vim-gitbranch'
+
+Plug 'Valloric/YouCompleteMe'
+Plug 'w0rp/ale'
+
+Plug 'nvie/vim-flake8'
 
 call plug#end()
 filetype plugin indent on  " allows auto-indenting depending on file type
 
 " color scheme
 " ------------
+syntax enable
 if has('gui_vimr')
   " only for vimr
+  colorscheme NeoSolarized
   set background=dark
-  colorscheme cobalt2
 endif
 
 " general stuff
@@ -41,17 +46,23 @@ set number                  " add line numbers
 set wildmode=longest,list   " get bash-like tab completions
 set cc=80                   " set an 80 column border for good coding style
 
-" syntastic stuff
+" YouCompleteMe stuff
 " ---------------
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+let g:ycm_autoclose_preview_window_after_completion = 1
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_python_pylint_exe = 'python3 -m pylint3'
+" lightline stuff
+" ---------------
+set noshowmode
+let g:lightline = {
+      \ 'colorscheme': 'solarized',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'gitbranch#name'
+      \ },
+      \ }
 
 " python stuff
 " ------------
