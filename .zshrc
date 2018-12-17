@@ -24,9 +24,6 @@ source $ZSH/oh-my-zsh.sh
 
 ## User configuration
 
-# Miniconda
-export PATH=~/miniconda3/bin:$PATH
-
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='nvim'
@@ -45,3 +42,10 @@ export SSH_KEY_PATH="~/.ssh/rsa_id"
 #ZSH_THEME="rkj-repos"
 autoload -U promptinit; promptinit
 prompt pure
+
+## PyEnv
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
