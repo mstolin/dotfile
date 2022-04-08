@@ -4,7 +4,6 @@ export ZSH="$HOME/.oh-my-zsh"
 # Plugins
 plugins=(
   git
-  tmux
   zsh-autosuggestions
   zsh-syntax-highlighting
 )
@@ -14,11 +13,12 @@ source $ZSH/oh-my-zsh.sh
 # Compilation flags
 export ARCHFLAGS="-arch x86_64"
 
-# Automaticall start tmux
-#ZSH_TMUX_AUTOSTART=true
-
-# Try to get Anki running
-#alias ankix="ANKI_WAYLAND=1 anki"
+# Aliases
+alias code="codium"
+alias ls="exa --group-directories-first --header"
+alias l="exa  -lbF --color=always --group-directories-first --header"
+alias la="exa -lbhHigUmuSa --time-style=long-iso --git --color-scale --header"
+alias lt="exa --tree --color=always --group-directories-first"
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
@@ -27,13 +27,14 @@ else
   export EDITOR='code'
 fi
 
-# Aliases
-alias ls="exa --group-directories-first --header"
-alias l='exa  -lbF --color=always --group-directories-first --header'
-alias la='exa -lbhHigUmuSa --time-style=long-iso --git --color-scale --header'
-alias lt='exa --tree --color=always --group-directories-first'
-
 # User configuration
+
+# .local
+export PATH="$PATH:$HOME/.local/bin"
+
+# intellij
+export INTELLIJ_HOME="/opt/idea-ultimate"
+export PATH="$PATH:$INTELLIJ_HOME/bin"
 
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"
@@ -46,8 +47,8 @@ export POETRY_HOME="$HOME/.poetry"
 export PATH="$POETRY_HOME/bin:$PATH"
 
 # Go
-export PATH=$PATH:/usr/local/go/bin
-export GOPATH=$HOME/go
+export PATH="$PATH:/usr/local/go/bin"
+export GOPATH="$HOME/go"
 
 # SDKMAN (must be at the end of the file)
 export SDKMAN_DIR="$HOME/.sdkman"
