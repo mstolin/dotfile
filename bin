@@ -1,0 +1,48 @@
+#!/bin/sh
+
+DISPLAY=:0
+export DISPLAY
+
+# Get the devices with: xsetwacom list devices
+devices=("Wacom HID 5278 Pen stylus" "Wacom HID 5278 Pen eraser" "Wacom HID 5278 Finger touch")
+
+rotate_cursor() {
+    for p in "${devices[@]}";
+    do
+        xinput set-prop "$p" "Coordinate Transformation Matrix" "$@"
+    done
+    sleep 1s
+    for p in "${devices[@]}";
+    do
+        xinput --map-to-output "$p" "$MAIN_SCREEN"
+    done
+}
+
+MAIN_SCREEN=eDP-1
+echo "$MAIN_SCREEN"
+monitor-sensor | while read -r line
+do
+    line="${line##*: }"
+    sleep 1s
+    # Set the actions to be taken for each possible orientation
+    case "$line" in
+        normal)
+            xrandr --output "$MAIN_SCREEN" --rotate normal
+            rotate_cursor 1 0 0 0 1 0 0 0 1
+            ;;
+        bottom-up)
+            xrandr --output "$MAIN_SCREEN" --rotate inverted
+            rotate_cursor -1 0 1 0 -1 1 0 0 1
+            ;; 
+        right-up)
+            xrandr --output "$MAIN_SCREEN" --rotate right
+            rotate_cursor 0 1 0 -1 0 1 0 0 1
+            ;;
+        left-up)
+            xrandr --output "$MAIN_SCREEN" --rotate left
+            rotate_cursor 0 -1 1 1 0 0 0 0 1
+            ;;
+    esac
+done
+exit 0
+
