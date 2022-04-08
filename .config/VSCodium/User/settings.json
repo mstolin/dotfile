@@ -1,0 +1,9 @@
+{
+    "workbench.colorTheme": "Cobalt2",
+    "editor.fontFamily": "'FiraCode Nerd Font Mono', 'Droid Sans Mono', 'monospace', monospace",
+    "terminal.integrated.fontFamily": "'FiraMono Nerd Font Mono'",
+    "editor.fontSize": 19,
+    "editor.renderWhitespace": "all",
+    "editor.wordWrap": "on",
+    "terminal.integrated.fontSize": 17
+}
