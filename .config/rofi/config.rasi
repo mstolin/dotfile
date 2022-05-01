@@ -1,0 +1,24 @@
+configuration {
+    modi: "window,run,drun";
+    location: 0;
+
+    font: "CaskaydiaCove Nerd Font Mono 15";
+    show-icons: true;
+    //icon-theme: "Papirus";
+
+    disable-history: false;
+    sidebar-mode: false;
+
+    /*run {
+        display-name: "sdfsdf";
+    }*/
+
+    display-drun: "";
+    drun-display-format: "{icon} {name}";
+
+    window-format: "{icon} {name} ({w})";
+
+    run-format: "{icon} {name}";
+}
+
+@theme "./cobalt2.rasi"

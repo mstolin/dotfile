@@ -1,0 +1,102 @@
+/*
+ * ROFI color theme
+ *
+ * Based on Something Found in the Internet
+ *
+ * User: Contributors
+ * Copyright: *!
+ */
+
+/*configuration {
+  font: "JetBrainsMono Nerd Font Medium 10";
+
+  drun {
+    display-name: "";
+  }
+
+  run {
+    display-name: "";
+  }
+
+  window {
+    display-name: "";
+  }
+
+  timeout {
+    delay: 10;
+    action: "kb-cancel";
+  }
+}*/
+
+* {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  spacing: 0;
+
+  bg: #122738;
+  bg-alt: #193549;
+  fg: #81A1C1;
+  fg-alt: #EBCB8B;
+  accent: #ffc600;
+  background-color: @bg;
+  text-color: #eeeeee;
+}
+
+window {
+  transparency: "real";
+  border: 1px;
+  border-color: @accent;
+  children: [mainbox];
+}
+
+mainbox {
+  children: [inputbar, listview];
+}
+
+inputbar {
+  background-color: @bg-alt;
+  children: [prompt, entry];
+  padding: 18px 28px;
+}
+
+entry {
+  background-color: inherit;
+  padding: 0 24px;
+}
+
+// TODO SOMEHOW CHANGE THE SIZE
+/*prompt {
+  size: 30;
+  background-color: #ff0000;
+}*/
+
+listview {
+  lines: 8;
+  padding: 12px 0;
+}
+
+element {
+  children: [element-icon, element-text];
+  padding: 12px 24px;
+}
+
+element selected {
+  background-color: #236e6d;//#1f4662;
+}
+
+// TODO FIX THE LEFT SPACE
+
+/*element-icon {
+  size: 100;
+  background-color: #ff0000;
+  padding: 50px;
+  border-color: #00ff00;
+  border: 1px;
+  //padding: 0 50px;
+}
+
+element-text selected {
+  text-color: #00ff00;//@fg-alt;
+  background-color: #ff0000;
+}*/
