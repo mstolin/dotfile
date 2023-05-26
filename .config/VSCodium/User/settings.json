@@ -1,10 +1,21 @@
 {
+    "editor.fontFamily": "'CaskaydiaCove Nerd Font Mono', 'Droid Sans Mono', 'monospace', monospace",
+    "editor.fontSize": 23,
     "workbench.colorTheme": "Cobalt2",
-    "editor.fontFamily": "'FiraCode Nerd Font Mono', 'Droid Sans Mono', 'monospace'",
-    "editor.fontLigatures": true,
-    "terminal.integrated.fontFamily": "'FiraMono Nerd Font Mono', 'monospace'",
-    "editor.fontSize": 19,
-    "editor.renderWhitespace": "all",
-    "editor.wordWrap": "on",
-    "terminal.integrated.fontSize": 17
+    "explorer.confirmDelete": false,
+    "[vue]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "terminal.integrated.fontSize": 23,
+    "editor.rulers": [80,120],
+    "terminal.integrated.lineHeight": 1.1,
+    "prettier.tabWidth": 4,
+    "explorer.confirmDragAndDrop": false,
+    "go.toolsManagement.autoUpdate": true,
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    }
 }
