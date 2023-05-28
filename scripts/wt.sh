@@ -9,7 +9,7 @@ fi
 channel="${1}"
 url="https://www.twitch.tv/${channel}"
 stream="${2:-480p,720p,1080p60,best}"
-player="${3:-mpv --profile='stream'}"
+player="${3:-mpv}"
 buffer="${4:-64M}"
 
 cmd_streamlink="streamlink -Q -p='${player}' --ringbuffer-size='${buffer}' --twitch-low-latency ${url} ${stream}"
