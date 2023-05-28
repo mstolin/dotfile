@@ -1,5 +1,11 @@
 #!/bin/sh
 
+# PRECONDITIONS:
+#
+# 1. Get your OAuth Token as described https://streamlink.github.io/cli/plugins/twitch.html#authentication
+# 2. Create a file named ~/.config/streamlink/twitch.pluginname
+# 3. Add the following: twitch-api-header=Authorization=OAuth YOUR_OAUTH_TOKEN
+
 if [ -z "$1" ]
   then
     echo "No channel name provided."
